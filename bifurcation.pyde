@@ -1,12 +1,5 @@
-import time
-print("hi")
-#x=[75,1000],y=[25,700]
-
 def pointify(coord):
     return (coord[0]/4*560+620,coord[1]/1*-675+700)
-
-def pointify2(coord):
-    return (coord[0]/16*560+20,coord[1]/1*-675+700)
 
 def firstGraph(r):
     fill(255)
@@ -22,14 +15,14 @@ def firstGraph(r):
     for a in range(0,9): line(560/8*a+20,720,560/8*a+20,680)
     bruh = " "*18
     textSize(10.5)
-    text("0"+bruh+"2"+bruh+"4"+bruh+"6"+bruh+"8"+bruh+"10"+bruh+"12"+bruh+"14"+bruh+"16",300,733)
+    text("0"+bruh+"4"+bruh+"8"+bruh+"12"+bruh+"16"+bruh+"20"+bruh+"24"+bruh+"28"+bruh+"32",300,733)
     text("1",10,25)
     textSize(20)
     text("f(n+1)=r*f(n)*(1-f(n)), f(0)=0.5",300,25)
     num = 0.5
     prev = 0
-    for a in range(17):
-        apla = [float(a)/16*560+20,num/1*-675+700]
+    for a in range(33):
+        apla = [float(a)/32*560+20,num/1*-675+700]
         fill(255,230,255)
         strokeWeight(2)
         circle(apla[0],apla[1],10)
@@ -73,7 +66,7 @@ def setup():
     textSize(10.5)
     fill(0)
     strokeWeight(3)
-    line(600,0,600,750)
+    line(600,25,600,750)
     strokeWeight(1)
     line(620,25,620,700)
     line(615,25,625,25)
@@ -82,7 +75,7 @@ def setup():
     textAlign(CENTER)
     bruh = " "*40
     text("0"+bruh+"1"+bruh+"2"+bruh+"3"+bruh+"4",900,733)
-    text("1",610,25)
+    text("1",610,30)
     textSize(20)
     text("r",1180,675)
     textSize(20)
@@ -97,8 +90,8 @@ def setup():
     for a in range(0,9): line(560/8*a+20,720,560/8*a+20,680)
     bruh = " "*18
     textSize(10.5)
-    text("0"+bruh+"2"+bruh+"4"+bruh+"6"+bruh+"8"+bruh+"10"+bruh+"12"+bruh+"14"+bruh+"16",300,733)
-    text("1",10,25)
+    text("0"+bruh+"4"+bruh+"8"+bruh+"12"+bruh+"16"+bruh+"20"+bruh+"24"+bruh+"28"+bruh+"32",300,733)
+    text("1",10,30)
     textSize(20)
     text("f(n+1)=r*f(n)*(1-f(n)), f(0)=0.5",300,25)
     
@@ -106,15 +99,16 @@ def draw():
     global start, number
     if start:
         if number<4:
+            fill(0)
+            stroke(0)
+            strokeWeight(1)
             if number >= 4: number = 3.99
             firstGraph(number)
             coords = recursion(0.5, number, 0)
             #print(coords)
-            strokeWeight(1)
-            fill(0)
-            for _ in coords: circle(_[0], _[1],2)
-            number+=0.01
-        if number>3.2 and number<3.57: time.sleep(0.075)
-        elif number>=3.57:time.sleep(0.1)
+            for _ in coords: circle(_[0], _[1],1)
+            if number <=3.2: number += 0.008
+            elif number>3.2 and number<3.4: number+=0.005
+            elif number>=3.4:number+=0.002
     else:
         if mousePressed: start = True
