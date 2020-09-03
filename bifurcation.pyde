@@ -29,7 +29,6 @@ def firstGraph(r):
     num = 0.5
     prev = 0
     for a in range(17):
-        num = recursion(num, r, -1)
         apla = [float(a)/16*560+20,num/1*-675+700]
         fill(255,230,255)
         strokeWeight(2)
@@ -38,6 +37,7 @@ def firstGraph(r):
             strokeWeight(2)
             fill(0)
             line(prev[0],prev[1],apla[0],apla[1])
+        num = recursion(num, r, -1)
         prev = list(apla)
             
 
