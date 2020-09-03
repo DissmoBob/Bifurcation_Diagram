@@ -115,6 +115,6 @@ def draw():
             for _ in coords: circle(_[0], _[1],2)
             number+=0.01
         if number>3.2 and number<3.57: time.sleep(0.075)
-        elif number>=3.57:time.sleep(0.05)
+        elif number>=3.57:time.sleep(0.1)
     else:
         if mousePressed: start = True
