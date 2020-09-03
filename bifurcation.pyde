@@ -42,7 +42,7 @@ def firstGraph(r):
             
 
 def recursion(num, r, time):
-    if time <= 19 and time >=0: return recursion(r*num*(1-num), r, time + 1)
+    if time <= 49 and time >=0: return recursion(r*num*(1-num), r, time + 1)
     elif time == -1: return r*num*(1-num)
     else: 
         #print("HI")
